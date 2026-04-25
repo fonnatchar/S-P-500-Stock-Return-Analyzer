@@ -107,8 +107,4 @@ Data are used for educational purposes only. Users are responsible for verifying
 | University | Xi'an Jiaotong-Liverpool University |
 | Semester | 2nd Semester 2024–25 |
 
----
 
-## ⚠️ Disclaimer
-
-This tool is built for **educational and assessment purposes only**. It does not constitute financial advice. Past performance does not guarantee future results.
