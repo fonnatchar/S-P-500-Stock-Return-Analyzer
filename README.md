@@ -1,6 +1,4 @@
-# 📈 S&P 500 Stock Return Analyzer
-
-**ACC102 Mini Assignment — Track 4: Interactive Data Analysis Tool**
+# S&P 500 Stock Return Analyzer
 
 A Streamlit web app that lets users compare the 1-year return of any two S&P 500 stocks under the same investment budget, powered by live data from Yahoo Finance.
 
@@ -10,7 +8,7 @@ A Streamlit web app that lets users compare the 1-year return of any two S&P 500
 
 > *Which of two S&P 500 stocks would have generated a higher return if I had invested the same budget 1 year ago?*
 
-This tool is designed for **retail investors and finance students** who want a quick, visual, and data-driven way to compare the performance and risk profile of two stocks — without needing to write code themselves.
+This tool is designed for investors who want a quick, visual, and data-driven way to compare the performance and risk profile of two stocks — without needing to write code themselves.
 
 ---
 
