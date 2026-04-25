@@ -1,13 +1,16 @@
-# S&P-500-Stock-Return-Analyzer
+# 📈 S&P 500 Stock Return Analyzer
+
+**ACC102 Mini Assignment — Track 4: Interactive Data Analysis Tool**
 
 A Streamlit web app that lets users compare the 1-year return of any two S&P 500 stocks under the same investment budget, powered by live data from Yahoo Finance.
 
+---
 
 ## 🎯 Analytical Problem
 
 > *Which of two S&P 500 stocks would have generated a higher return if I had invested the same budget 1 year ago?*
 
-This tool is designed for investors who want a quick, visual, and data-driven way to compare the performance and risk profile of two stocks — without needing to write code themselves.
+This tool is designed for **retail investors and finance students** who want a quick, visual, and data-driven way to compare the performance and risk profile of two stocks — without needing to write code themselves.
 
 ---
 
@@ -81,6 +84,7 @@ numpy>=1.26.0
 matplotlib>=3.8.0
 ```
 
+*(also saved in `requirements.txt`)*
 
 ---
 
@@ -92,7 +96,21 @@ matplotlib>=3.8.0
 - **Window:** 1 year from the date the app is run
 - **Access:** Data is fetched live at runtime
 
+Data are used for educational purposes only. Users are responsible for verifying data accuracy before making any financial decisions.
+
 ---
 
+## 🎓 Module Information
 
-.
+| Field | Detail |
+|---|---|
+| Module | ACC102 |
+| Track | Track 4 — Interactive Data Analysis Tool |
+| University | Xi'an Jiaotong-Liverpool University |
+| Semester | 2nd Semester 2024–25 |
+
+---
+
+## ⚠️ Disclaimer
+
+This tool is built for **educational and assessment purposes only**. It does not constitute financial advice. Past performance does not guarantee future results.
