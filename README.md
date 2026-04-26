@@ -35,7 +35,7 @@ This tool is designed for investors who want a quick, visual, and data-driven wa
 
 ## 5. Product Link / Demo
 - 🌐 Live app: [(https://s-p-500-stock-return-analyzer-nrlq3qyrpquvghx2in9uz4.streamlit.app/)]
-- 🎥 Demo video: [your video link here]
+- 🎥 Demo video: [(https://video.xjtlu.edu.cn/Mediasite/Play/1abb606e827c409096f872cd5634872f1d)]
 
 ## 6. Limitations & Next Steps
 **Current limitations:**
