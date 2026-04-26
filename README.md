@@ -4,43 +4,35 @@ A Streamlit web app that lets users compare the 1-year return of any two S&P 500
 
 ---
 
-## 🎯 Analytical Problem
+## 1. Problem & User
 
 > *Which of two S&P 500 stocks would have generated a higher return if I had invested the same budget 1 year ago?*
 
-This tool is designed for investors who want a quick, visual, and data-driven way to compare the performance and risk profile of two stocks — without needing to write code themselves.
+This tool is designed for investors who want a quick, visual, and data-driven way to compare two stocks fairly when they trade at very different price levels. — without needing to write code themselves. This tool answers the question: *given the same budget, which of two S&P 500 stocks would have generated a higher return over the past year?* 
 
----
+## 2. Data
+- **Source:** Stooq (https://stooq.com) — free public historical price data, no API key required
+- **Access date:** 25 April 2026
+- **Coverage:** Any US-listed stock using standard ticker symbols (e.g. AAPL, MSFT, TSLA)
+- **Key fields:** Date, Close price (daily, resampled to weekly)
+- **Method:** `pandas.read_csv()` via direct Stooq CSV URL — no third-party library required
 
-## 🚀 Live Demo
+## 3. Methods
+1. **Data acquisition** — fetch daily closing prices from Stooq via URL, parsed directly into a `pandas` DataFrame
+2. **Cleaning** — sort ascending (Stooq returns newest-first), drop nulls, resample daily → weekly using `.resample("W").last()`
+3. **Alignment** — both series clipped to a common start date for a fair comparison window
+4. **Investment simulation** — calculate shares purchased (`budget // start_price`), final portfolio value, and profit/loss
+5. **Risk metrics** — annualised volatility from weekly log-returns (`std × √52`), maximum drawdown, 52-week high/low
+6. **Visualisation** — three `matplotlib` charts: normalised index chart (both rebased to 100), portfolio value over time, side-by-side return bar chart
 
-👉 [View on Streamlit Cloud](#) *(replace with your deployed link)*
+## 4. Key Findings
+- Normalising both stocks to 100 at the start reveals momentum differences that raw price charts hide
+- A higher return does not always mean lower risk — the tool shows volatility and max drawdown alongside return so users can assess risk-adjusted performance
+- Whole-share purchasing means the actual cash deployed differs slightly between stocks, which affects the real P&L comparison
+- Short-term (1-year) return rankings can reverse significantly depending on the exact start date chosen
+- Weekly resampling removes daily noise while preserving meaningful intra-year price trends
 
-Demo video: [Watch 1–3 min walkthrough](#) *(replace with your video link)*
-
----
-
-## 📦 Features
-
-| Feature | Description |
-|---|---|
-| **Live data** | Fetches real weekly closing prices via `yfinance` |
-| **Investment simulation** | Calculates shares bought, final value, and P&L for any budget |
-| **Normalised chart** | Index-to-100 price chart for fair comparison regardless of stock price |
-| **Portfolio value chart** | Shows dollar value of the portfolio over time |
-| **Risk metrics** | Annualised volatility, 52-week high/low, and maximum drawdown |
-| **Return bar chart** | Side-by-side visual return comparison |
-| **Raw data view** | Expandable table of weekly prices |
-
----
-
-## 🛠️ Installation & Setup
-
-### Prerequisites
-- Python 3.9 or higher
-- pip
-
-### Steps
+## 5. How to Run
 
 ```bash
 # 1. Clone the repository
@@ -50,61 +42,33 @@ cd sp500-stock-analyzer
 # 2. Install dependencies
 pip install -r requirements.txt
 
-# 3. Run the app
+# 3. Launch the Streamlit app
 streamlit run app.py
 ```
 
-The app will open at `http://localhost:8501` in your browser.
+**Requirements:** Python 3.9+, packages listed in `requirements.txt`
+No API key or account needed — data loads automatically from Stooq.
 
----
-
-## 📁 File Structure
-
-```
-sp500-stock-analyzer/
-│
-├── app.py                  # Main Streamlit application
-├── ACC102_notebook.ipynb   # Python analysis notebook
-├── requirements.txt        # Python dependencies
-├── README.md               # This file
-└── reflection_report.md    # 500–800 word reflection
+To run the notebook:
+```bash
+jupyter notebook ACC102_notebook.ipynb
 ```
 
----
+## 6. Product Link / Demo
+- 🌐 Live app: [your Streamlit Cloud link here]
+- 🎥 Demo video: [your video link here]
 
-## 📋 Requirements
+## 7. Limitations & Next Steps
+**Current limitations:**
+- Price return only — dividends not separately itemised (may understate total return for dividend-paying stocks)
+- Whole shares only — fractional share investing not modelled
+- Fixed 1-year lookback — results are sensitive to the exact start date
+- Stooq may not carry data for very small-cap or recently listed stocks
 
-```
-streamlit>=1.32.0
-yfinance>=0.2.40
-pandas>=2.0.0
-numpy>=1.26.0
-matplotlib>=3.8.0
-```
-
-*(also saved in `requirements.txt`)*
-
----
-
-## 📊 Data Source
-
-- **Provider:** Yahoo Finance
-- **Library:** [`yfinance`](https://pypi.org/project/yfinance/) (open-source, MIT licence)
-- **Frequency:** Weekly closing prices
-- **Window:** 1 year from the date the app is run
-- **Access:** Data is fetched live at runtime
-
-Data are used for educational purposes only. Users are responsible for verifying data accuracy before making any financial decisions.
-
----
-
-## 🎓 Module Information
-
-| Field | Detail |
-|---|---|
-| Module | ACC102 |
-| Track | Track 4 — Interactive Data Analysis Tool |
-| University | Xi'an Jiaotong-Liverpool University |
-| Semester | 2nd Semester 2024–25 |
-
+**Possible next steps:**
+- Add a benchmark comparison line (e.g. SPY / S&P 500 index)
+- Include Sharpe ratio for a formal risk-adjusted return metric
+- Allow user-defined date range beyond 1 year
+- Support dividend-adjusted total return calculation
+- Add a third stock slot for three-way comparison
 
