@@ -32,33 +32,12 @@ This tool is designed for investors who want a quick, visual, and data-driven wa
 - Short-term (1-year) return rankings can reverse significantly depending on the exact start date chosen
 - Weekly resampling removes daily noise while preserving meaningful intra-year price trends
 
-## 5. How to Run
 
-```bash
-# 1. Clone the repository
-git clone https://github.com/YOUR_USERNAME/sp500-stock-analyzer.git
-cd sp500-stock-analyzer
-
-# 2. Install dependencies
-pip install -r requirements.txt
-
-# 3. Launch the Streamlit app
-streamlit run app.py
-```
-
-**Requirements:** Python 3.9+, packages listed in `requirements.txt`
-No API key or account needed — data loads automatically from Stooq.
-
-To run the notebook:
-```bash
-jupyter notebook ACC102_notebook.ipynb
-```
-
-## 6. Product Link / Demo
-- 🌐 Live app: [your Streamlit Cloud link here]
+## 5. Product Link / Demo
+- 🌐 Live app: [(https://s-p-500-stock-return-analyzer-nrlq3qyrpquvghx2in9uz4.streamlit.app/)]
 - 🎥 Demo video: [your video link here]
 
-## 7. Limitations & Next Steps
+## 6. Limitations & Next Steps
 **Current limitations:**
 - Price return only — dividends not separately itemised (may understate total return for dividend-paying stocks)
 - Whole shares only — fractional share investing not modelled
